@@ -1,1 +1,1 @@
-# 22sdc-get-my-streak-for-ssu
+# 슈-트래커
