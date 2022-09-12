@@ -3,10 +3,9 @@ import Typography from "~/components/typography";
 
 const Main = () => {
   return (
-    <div>
-      {/* Typography 예시 디폴트 태그 p */}
+    <div style={{ border: "1px solid blue" }}>
       <Typography as="h1" size="eb3" weight="extraBold">
-        메인 페이지
+        카드 자리
       </Typography>
     </div>
   );
