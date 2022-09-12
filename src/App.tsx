@@ -2,6 +2,16 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 const App = () => {
+  React.useEffect(() => {
+    const getUser = async () => {
+      const res = await fetch("https://server.com/api/user", {
+        method: "GET",
+      }).then((res) => res.json());
+      console.log(res);
+      return res;
+    };
+    getUser();
+  }, []);
   return (
     <Routes>
       <Route index />
