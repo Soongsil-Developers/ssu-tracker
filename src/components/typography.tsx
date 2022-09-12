@@ -43,6 +43,6 @@ const BaseTypography = styled.p<TypographyProps>`
     font-weight: ${props.weight && contants.fontWeight[props.weight]};
     color: ${props.color};
     white-space: pre-wrap;
-    line-height: 1.563rem;
+    line-height: 2.25rem;
   `}
 `;
