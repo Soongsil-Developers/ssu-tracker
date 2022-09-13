@@ -1,8 +1,7 @@
 import React from "react";
-import Profile from "./Profile";
-import Streak from "./Streak";
-import Card from "./Card";
-import { Row, Col } from "antd";
+import Profile from "~/components/main/Profile";
+import Streak from "~/components/main/Streak";
+import Card from "~/components/main/Card";
 
 const Main = () => {
   return (
