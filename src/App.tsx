@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Main from "../src/components/main/Main";
 
 const App = () => {
   React.useEffect(() => {
@@ -14,7 +15,7 @@ const App = () => {
   }, []);
   return (
     <Routes>
-      <Route index />
+      <Route index element={<Main />} />
       <Route path="/auth">
         <Route path="signIn" />
         <Route path="signUp" />
