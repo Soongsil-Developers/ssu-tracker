@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Main from "../src/components/main/Main";
+import Main from "~/pages/Main";
 
 const App = () => {
   React.useEffect(() => {

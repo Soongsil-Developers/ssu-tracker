@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import GlobalStyle from "./globalStyles";
 import App from "./App";
 
 import { setupWorker, rest } from "msw";
@@ -27,6 +28,7 @@ prepare().then(() => {
   ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
       <BrowserRouter>
+        <GlobalStyle />
         <App />
       </BrowserRouter>
     </React.StrictMode>

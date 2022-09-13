@@ -18,11 +18,9 @@
     "types": ["node"],
     "baseUrl": "src",
     "paths": {
-      "~/assets/*": ["assets/*"],
       "~/components/*": ["components/*"],
       "~/constants/*": ["constants/*"],
-      "~/hooks/*": ["hooks/*"],
-      "~/utils/*": ["utils/*"],
+      "~/pages/*": ["pages/*"],
       "~/types/*": ["types/*"]
     }
   },
