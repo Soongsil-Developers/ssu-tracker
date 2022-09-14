@@ -10,7 +10,7 @@ import type {
   MemberInfo,
   ResponseMemberAmount,
   ResponseMemberMe,
-} from "~/types/user";
+} from "../types/user";
 import AsyncBoundary from "../components/asyncBoundary";
 
 const Member = () => {
@@ -53,6 +53,10 @@ const Main = () => {
 
 export default Main;
 
-const MemberBase = styled.section``;
+const MemberBase = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
 
 const MainBase = styled.main``;
