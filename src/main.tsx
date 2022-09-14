@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import GlobalStyle from "./styles/globalStyles";
 import App from "./App";
+import { ThemeProvider } from "styled-components";
+import theme from "./constants/theme";
 
 import { setupWorker, rest } from "msw";
 
@@ -53,10 +55,12 @@ async function prepare() {
 prepare().then(() => {
   ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
-      <BrowserRouter>
-        <GlobalStyle />
-        <App />
-      </BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <GlobalStyle />
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
     </React.StrictMode>
   );
 });
