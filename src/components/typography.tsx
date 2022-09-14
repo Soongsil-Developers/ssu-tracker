@@ -14,6 +14,7 @@ interface TypographyProps extends PropsWithChildren {
   size?: FontSize;
   weight?: FontWeight;
   color?: FontColor;
+  lineHeight?: number;
   as?: React.ElementType;
 }
 
@@ -43,6 +44,6 @@ const BaseTypography = styled.p<TypographyProps>`
     font-weight: ${props.weight && contants.fontWeight[props.weight]};
     color: ${props.color};
     white-space: pre-wrap;
-    line-height: 2.25rem;
+    line-height: ${props.lineHeight}rem;
   `}
 `;

@@ -5,7 +5,7 @@ const Profile = () => {
   return (
     <div style={{ border: "1px solid" }}>
       <div>프로필</div>
-      <Typography as="h1" size="eb3" weight="extraBold">
+      <Typography as="h1" size="eb3" weight="extraBold" lineHeight={2.25}>
         올해 학교에
         <br />
         <span style={{ color: "#F47458" }}>365일 연속</span>으로,
