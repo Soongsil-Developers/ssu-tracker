@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Typography from "~/components/typography";
+import Typography from "../typography";
 
 const Streak = () => {
   const navigate = useNavigate();

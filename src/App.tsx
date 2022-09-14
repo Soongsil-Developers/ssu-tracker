@@ -1,18 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Main from "~/pages/Main";
+import Main from "./pages/Main";
 
 const App = () => {
-  React.useEffect(() => {
-    const getUser = async () => {
-      const res = await fetch("https://server.com/api/user", {
-        method: "GET",
-      }).then((res) => res.json());
-      console.log(res);
-      return res;
-    };
-    getUser();
-  }, []);
   return (
     <Routes>
       <Route index element={<Main />} />
