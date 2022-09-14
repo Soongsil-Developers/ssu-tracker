@@ -1,4 +1,4 @@
-import { Device } from "styles/mediaQuery";
+import { Device } from "../styles/mediaQuery";
 
 const DEVICE_LIST: Device[] = [
   "mobile",
