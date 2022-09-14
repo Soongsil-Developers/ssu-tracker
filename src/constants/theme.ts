@@ -3,8 +3,15 @@ import type { DefaultTheme } from "styled-components";
 const theme: DefaultTheme = {
   colors: {
     primary: "#F47458",
-    gray: "#9E9E9E",
-    black: "#1D1D1D",
+    gray_1: "#F5F5F5",
+    gray_2: "#EDEDED",
+    gray_3: "#EOEOEO",
+    gray_4: "#C2C2C2",
+    gray_5: "#9E9E9E",
+    gray_6: "#757575",
+    gray_7: "#616161",
+    gray_8: "#424242",
+    black: "#000",
     white: "#fff",
   },
   fontSize: {

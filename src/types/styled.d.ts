@@ -4,7 +4,14 @@ declare module "styled-components" {
   export interface DefaultTheme {
     colors: {
       primary: string;
-      gray: string;
+      gray_1: "#F5F5F5";
+      gray_2: "#EDEDED";
+      gray_3: "#EOEOEO";
+      gray_4: "#C2C2C2";
+      gray_5: "#9E9E9E";
+      gray_6: "#757575";
+      gray_7: "#616161";
+      gray_8: "#424242";
       black: string;
       white: string;
     };
