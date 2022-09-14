@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import styled, { css } from "styled-components";
 
-import contants from "~/constants/theme";
+import contants from "../constants/theme";
 
 type FontSize = keyof typeof contants.fontSize;
 
