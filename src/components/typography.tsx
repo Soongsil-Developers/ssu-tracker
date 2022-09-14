@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import styled, { css } from "styled-components";
+import type { FlattenSimpleInterpolation } from "styled-components";
 
 import contants from "../constants/theme";
 
@@ -16,6 +17,7 @@ interface TypographyProps extends PropsWithChildren {
   color?: FontColor;
   lineHeight?: number;
   as?: React.ElementType;
+  css?: FlattenSimpleInterpolation;
 }
 
 const Typography = ({
@@ -42,8 +44,9 @@ const BaseTypography = styled.p<TypographyProps>`
         }`
       : ""};
     font-weight: ${props.weight && contants.fontWeight[props.weight]};
-    color: ${props.color};
+    color: ${props.color && contants.colors[props.color]};
     white-space: pre-wrap;
     line-height: ${props.lineHeight}rem;
   `}
+  ${(props) => props.css}
 `;
