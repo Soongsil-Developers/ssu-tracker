@@ -22,7 +22,7 @@ const responseCardDisplay = {
   wideDesktop: "",
 };
 
-const MostCard = (props: any) => {
+const BuildingCard = (props: any) => {
   return (
     <div>
       <CardTemplate css={responseCardCss}>
@@ -79,4 +79,4 @@ const responseCardCss = css`
   ).join("")}
 `;
 
-export default MostCard;
+export default BuildingCard;
