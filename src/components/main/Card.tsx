@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import theme from "../../constants/theme";
 import DEVICE_LIST from "../../constants/device";
 import { applyMediaQuery } from "../../styles/mediaQuery";
+import CardTemplate from "../cardTemplate";
 
 const responseNameFonts = {
   mobile: theme.fontSize.body2b_mobile,
@@ -14,22 +15,13 @@ const responseNameFonts = {
   wideDesktop: theme.fontSize.body2b_pc,
 };
 
-const CardTemplate = styled.div`
-  & {
-    background: #ffffff;
-    box-shadow: 0px 16px 20px rgba(0, 0, 0, 0.05);
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 20px;
-    gap: 110px;
-
-    width: 336px;
-    margin-bottom: 12px;
-  }
-`;
+const responseCardWidths = {
+  mobile: "335px",
+  tablet: "336px",
+  wideTablet: "364px",
+  desktop: "440px",
+  wideDesktop: "806px",
+};
 
 const Card = () => {
   const data = [
@@ -72,7 +64,7 @@ const Card = () => {
   };
 
   return (
-    <div style={{ border: "1px solid blue" }}>
+    <div>
       <div>
         <select onChange={changeOption}>
           {buildings.map((building) => (
@@ -83,7 +75,7 @@ const Card = () => {
 
       <div>
         {filteredData.map((d: { inOut: string; date: Date; type: string }) => (
-          <CardTemplate>
+          <CardTemplate css={responseCardCss}>
             <div>
               <Typography
                 as="p"
@@ -116,6 +108,14 @@ const responsiveNameCss = css`
   ${DEVICE_LIST.map(
     (device) => `${applyMediaQuery(device)} {
     font-size: ${responseNameFonts[device]}
+  }`
+  ).join("")}
+`;
+
+const responseCardCss = css`
+  ${DEVICE_LIST.map(
+    (device) => `${applyMediaQuery(device)} {
+  width: ${responseCardWidths[device]}
   }`
   ).join("")}
 `;
