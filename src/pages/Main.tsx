@@ -11,6 +11,7 @@ import type {
   ResponseMemberAmount,
   ResponseMemberMe,
 } from "../types/user";
+import type { StreakResult } from "../types/streak";
 import AsyncBoundary from "../components/asyncBoundary";
 import BuildingCard from "../components/main/BuildingCard";
 
@@ -42,10 +43,17 @@ const Buildings = () => {
     data: buildingData,
     loading: buildingLoading,
     error: buildingError,
-  } = useFetch<ResponseMemberMe>("https://server.com/streaks", {
+  } = useFetch<StreakResult>("https://server.com/streaks", {
     method: "GET",
   });
-  return <BuildingCard {...buildingData?.data} />;
+  return (
+    <BuildingCard
+      data={[]}
+      mostVisit={""}
+      mostStay={""}
+      {...buildingData?.data}
+    />
+  );
 };
 
 const Main = () => {
