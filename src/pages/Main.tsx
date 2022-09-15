@@ -11,6 +11,7 @@ import type {
   ResponseMemberAmount,
   ResponseMemberMe,
 } from "../types/user";
+import type { LogCardProps } from "../types/log";
 import AsyncBoundary from "../components/asyncBoundary";
 
 const Member = () => {
@@ -36,6 +37,16 @@ const Member = () => {
   );
 };
 
+const BuildingAccess = () => {
+  const {
+    data: LogData,
+    loading: LogLoading,
+    error: LogError,
+  } = useFetch<LogCardProps>("https://server.com/members/allLog", {
+    method: "GET",
+  });
+  return <LogCard data={[]} {...LogData?.data} />;
+};
 const Main = () => {
   return (
     <MainBase>
@@ -46,7 +57,7 @@ const Main = () => {
         <Member />
       </AsyncBoundary>
       <Streak />
-      <LogCard />
+      <BuildingAccess />
     </MainBase>
   );
 };
