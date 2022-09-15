@@ -68,37 +68,41 @@ const LogCard = () => {
       <div>
         <select onChange={changeOption}>
           {buildings.map((building) => (
-            <option value={building}> {building} </option>
+            <option key={building} value={building}>
+              {building}
+            </option>
           ))}
         </select>
       </div>
 
       <div>
-        {filteredData.map((d: { inOut: string; date: Date; type: string }) => (
-          <CardTemplate css={responseCardCss}>
-            <div>
-              <Typography
-                as="p"
-                weight="semiBold"
-                lineHeight={1.06}
-                css={responsiveNameCss}
-              >
-                {d.inOut === "in" ? "입장" : "퇴장"}
+        {filteredData.map(
+          (d: { inOut: string; date: Date; type: string }, index) => (
+            <CardTemplate key={index} css={responseCardCss}>
+              <div>
+                <Typography
+                  as="p"
+                  weight="semiBold"
+                  lineHeight={1.06}
+                  css={responsiveNameCss}
+                >
+                  {d.inOut === "in" ? "입장" : "퇴장"}
+                </Typography>
+                <Typography
+                  as="p"
+                  weight="semiBold"
+                  color="gray_5"
+                  css={responsiveNameCss}
+                >
+                  {format(d.date, "LL.dd kk:mm")}
+                </Typography>
+              </div>
+              <Typography as="p" weight="semiBold" css={responsiveNameCss}>
+                {d.type}
               </Typography>
-              <Typography
-                as="p"
-                weight="semiBold"
-                color="gray_5"
-                css={responsiveNameCss}
-              >
-                {format(d.date, "LL.dd kk:mm")}
-              </Typography>
-            </div>
-            <Typography as="p" weight="semiBold" css={responsiveNameCss}>
-              {d.type}
-            </Typography>
-          </CardTemplate>
-        ))}
+            </CardTemplate>
+          )
+        )}
       </div>
     </div>
   );
