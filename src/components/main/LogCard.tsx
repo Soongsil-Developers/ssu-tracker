@@ -115,7 +115,7 @@ const responsiveNameCss = css`
 const responseCardCss = css`
   ${DEVICE_LIST.map(
     (device) => `${applyMediaQuery(device)} {
-  width: ${responseCardWidths[device]}
+    width: ${responseCardWidths[device]}
   }`
   ).join("")}
 `;
