@@ -2,7 +2,7 @@ import React from "react";
 import MemberNotify from "../components/main/MemberNotify";
 import MemberInformation from "../components/main/MemberInformation";
 import Streak from "../components/main/Streak";
-import Card from "../components/main/Card";
+import LogCard from "../components/main/LogCard";
 import useFetch from "../hooks/useFetch";
 import styled from "styled-components";
 import type {
@@ -46,7 +46,7 @@ const Main = () => {
         <Member />
       </AsyncBoundary>
       <Streak />
-      <Card />
+      <LogCard />
     </MainBase>
   );
 };
