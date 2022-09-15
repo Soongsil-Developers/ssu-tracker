@@ -24,10 +24,11 @@ const Typography = ({
   className,
   as = "p",
   color = "black",
+  lineHeight = 1,
   ...props
 }: TypographyProps): React.ReactElement => {
   return (
-    <BaseTypography as={as} color={color} {...props}>
+    <BaseTypography as={as} color={color} lineHeight={lineHeight} {...props}>
       {props.children}
     </BaseTypography>
   );
