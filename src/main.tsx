@@ -43,6 +43,17 @@ const worker = setupWorker(
         },
       })
     );
+  }),
+  rest.get("https://server.com/streaks", (req, res, ctx) => {
+    return res(
+      ctx.json({
+        data: {
+          data: [],
+          mostVisit: "문화관",
+          mostStay: "한경직기념관",
+        },
+      })
+    );
   })
 );
 
