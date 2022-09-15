@@ -1,13 +1,13 @@
-interface SortingDateProps {
+interface DataByDay {
   date: Date;
   amount: number;
   type: string;
 }
 
-interface StreakResult {
-  data: SortingDateProps[];
+interface ResponseStreak {
+  data: DataByDay[];
   mostVisit: string;
   mostStay: string;
 }
 
-export type { StreakResult };
+export type { ResponseStreak };
