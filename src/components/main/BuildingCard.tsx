@@ -5,7 +5,7 @@ import theme from "../../constants/theme";
 import CardTemplate from "../cardTemplate";
 import DEVICE_LIST from "../../constants/device";
 import { applyMediaQuery } from "../../styles/mediaQuery";
-import type { StreakResult } from "../../types/streak";
+import type { ResponseStreak } from "../../types/streak";
 
 const responseCardFonts = {
   mobile: theme.fontSize.body2b_mobile,
@@ -23,7 +23,7 @@ const responseCardDisplay = {
   wideDesktop: "",
 };
 
-const BuildingCard = (props: StreakResult) => {
+const BuildingCard = (props: ResponseStreak) => {
   return (
     <div>
       <CardTemplate css={responseCardCss}>
