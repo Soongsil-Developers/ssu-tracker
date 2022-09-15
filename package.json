@@ -10,6 +10,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@soongsil/streak": "^1.0.0",
     "avvvatars-react": "^0.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

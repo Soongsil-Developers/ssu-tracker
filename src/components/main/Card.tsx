@@ -25,42 +25,42 @@ const Card = () => {
       <div>
         <CardTemplate>
           <div>
-            <Typography as="p" size="m1" weight="semiBold" lineHeight={1.06}>
+            <Typography as="p" size="caption1_pc" weight="semiBold" lineHeight={1.06}>
               입장
             </Typography>
-            <Typography as="p" size="m1" weight="semiBold" color="gray">
+            <Typography as="p" size="caption1_pc" weight="semiBold" color="gray_1">
               09.12 02:00
             </Typography>
           </div>
-          <Typography as="p" size="m1" weight="semiBold">
+          <Typography as="p" size="caption1_pc" weight="semiBold">
             정보과학관
           </Typography>
         </CardTemplate>
 
         <CardTemplate>
           <div>
-            <Typography as="p" size="m1" weight="semiBold">
+            <Typography as="p" size="caption1_pc" weight="semiBold">
               입장
             </Typography>
-            <Typography as="p" size="m1" weight="semiBold" color="gray">
+            <Typography as="p" size="caption1_pc" weight="semiBold" color="gray_1">
               09.12 02:00
             </Typography>
           </div>
-          <Typography as="p" size="m1" weight="semiBold">
+          <Typography as="p" size="caption1_pc" weight="semiBold">
             정보과학관
           </Typography>
         </CardTemplate>
 
         <CardTemplate>
           <div>
-            <Typography as="p" size="m1" weight="semiBold">
+            <Typography as="p" size="caption1_pc" weight="semiBold">
               입장
             </Typography>
-            <Typography as="p" size="m1" weight="semiBold" color="gray">
+            <Typography as="p" size="caption1_pc" weight="semiBold" color="gray_1">
               09.12 02:00
             </Typography>
           </div>
-          <Typography as="p" size="m1" weight="semiBold">
+          <Typography as="p" size="caption1_pc" weight="semiBold">
             정보과학관
           </Typography>
         </CardTemplate>

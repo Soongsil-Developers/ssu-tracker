@@ -5,6 +5,10 @@ import Streak from "../components/main/Streak";
 import Card from "../components/main/Card";
 import useFetch from "../hooks/useFetch";
 import styled from "styled-components";
+import type { 
+  DataProps,
+  ResponseData
+} from "../types/data";
 import type {
   MemberAmount,
   MemberInfo,
@@ -36,6 +40,21 @@ const Member = () => {
   );
 };
 
+const StreakMain = () => {
+  const {
+    data: streakData,
+    loading: streakLoading,
+    error: streakError,
+  } = useFetch<ResponseData>("https://server.com/grass", {
+    method: "GET",
+  });
+  return (
+    <StreakBase>
+      <Streak data={streakData?.data as DataProps[]} />
+    </StreakBase>
+  )
+}
+
 const Main = () => {
   return (
     <MainBase>
@@ -45,8 +64,8 @@ const Main = () => {
       >
         <Member />
       </AsyncBoundary>
-      <Streak />
-      <Card />
+      <StreakMain />
+      {/* <Card /> */}
     </MainBase>
   );
 };
@@ -60,3 +79,5 @@ const MemberBase = styled.section`
 `;
 
 const MainBase = styled.main``;
+
+const StreakBase = styled.section``;

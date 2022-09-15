@@ -43,6 +43,29 @@ const worker = setupWorker(
         },
       })
     );
+  }),
+  rest.get("https://server.com/grass", (req, res, ctx) => {
+    return res(
+      ctx.json({
+        data: [
+            {
+              date: new Date(2021, 8, 17),
+              amount: 3,
+              type: "정보섬"
+            },
+            {
+              date: new Date(2022, 2, 3),
+              amount: 4,
+              type: "중앙도서관"
+            },
+            {
+              date: new Date(2022, 8, 16),
+              amount: 2,
+              type: "정보섬"
+            }
+          ]
+      })
+    )
   })
 );
 
