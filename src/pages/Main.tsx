@@ -12,6 +12,7 @@ import type {
   ResponseMemberMe,
 } from "../types/user";
 import AsyncBoundary from "../components/asyncBoundary";
+import MostCard from "../components/main/MostCard";
 
 const Member = () => {
   const {
@@ -36,6 +37,17 @@ const Member = () => {
   );
 };
 
+const MostCards = () => {
+  const {
+    data: buildingData,
+    loading: buildingLoading,
+    error: buildingError,
+  } = useFetch<ResponseMemberMe>("https://server.com/streaks", {
+    method: "GET",
+  });
+  return <MostCard {...buildingData?.data} />;
+};
+
 const Main = () => {
   return (
     <MainBase>
@@ -45,6 +57,7 @@ const Main = () => {
       >
         <Member />
       </AsyncBoundary>
+      <MostCards />
       <Streak />
       <LogCard />
     </MainBase>
