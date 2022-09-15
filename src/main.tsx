@@ -44,7 +44,7 @@ const worker = setupWorker(
       })
     );
   }),
-  rest.get("https://server.com/members/allLog", (req, res, ctx) => {
+rest.get("https://server.com/members/allLog", (req, res, ctx) => {
     return res(
       ctx.json({
         data: {
@@ -110,6 +110,17 @@ const worker = setupWorker(
               type: "안익태기념관",
             },
           ],
+        },
+      })
+    );
+  }),
+  rest.get("https://server.com/streaks", (req, res, ctx) => {
+    return res(
+      ctx.json({
+        data: {
+          data: [],
+          mostVisit: "문화관",
+          mostStay: "한경직기념관",
         },
       })
     );
