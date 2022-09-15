@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Typography from "../typography";
 import { css } from "styled-components";
-import { format } from "date-fns";
+import { format, compareDesc } from "date-fns";
 import theme from "../../constants/theme";
 import DEVICE_LIST from "../../constants/device";
 import { applyMediaQuery } from "../../styles/mediaQuery";
@@ -51,8 +51,14 @@ const LogCard = (prop: LogCardProps) => {
     getFilterData(e.target.value);
   };
 
+  const sortForDate = (array: Log[]) => {
+    return array.sort((a, b) =>
+      compareDesc(new Date(a.date), new Date(b.date))
+    );
+  };
+
   useEffect(() => {
-    setData(prop.data);
+    setData(sortForDate(prop.data));
     setFilteredData(prop.data);
     getFilterData("모든 건물");
   }, [prop]);

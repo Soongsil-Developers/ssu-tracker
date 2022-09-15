@@ -61,12 +61,12 @@ const worker = setupWorker(
             },
             {
               inOut: "in",
-              date: new Date(2022, 1, 15, 13, 30),
+              date: new Date(2022, 8, 10, 13, 30),
               type: "정보과학관",
             },
             {
               inOut: "out",
-              date: new Date(2022, 1, 15, 14, 50),
+              date: new Date(2022, 8, 10, 14, 50),
               type: "정보과학관",
             },
             {
@@ -81,32 +81,32 @@ const worker = setupWorker(
             },
             {
               inOut: "in",
-              date: new Date(2022, 3, 15, 7, 5),
+              date: new Date(2022, 3, 16, 7, 5),
               type: "문화관",
             },
             {
               inOut: "out",
-              date: new Date(2022, 3, 15, 17, 5),
+              date: new Date(2022, 3, 16, 17, 5),
               type: "문화관",
             },
             {
               inOut: "in",
-              date: new Date(2022, 3, 15, 7, 5),
+              date: new Date(2022, 2, 15, 7, 5),
               type: "신양관",
             },
             {
               inOut: "out",
-              date: new Date(2022, 3, 15, 17, 5),
+              date: new Date(2022, 2, 15, 17, 5),
               type: "신양관",
             },
             {
               inOut: "in",
-              date: new Date(2022, 3, 15, 7, 5),
+              date: new Date(2022, 1, 15, 7, 5),
               type: "안익태기념관",
             },
             {
               inOut: "out",
-              date: new Date(2022, 3, 15, 17, 5),
+              date: new Date(2022, 1, 15, 17, 5),
               type: "안익태기념관",
             },
           ],
