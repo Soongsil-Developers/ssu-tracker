@@ -7,7 +7,7 @@ import DEVICE_LIST from "../../constants/device";
 import { applyMediaQuery } from "../../styles/mediaQuery";
 import CardTemplate from "../cardTemplate";
 
-const responseNameFonts = {
+const responseCardFonts = {
   mobile: theme.fontSize.body2b_mobile,
   tablet: theme.fontSize.body2b_mobile,
   wideTablet: theme.fontSize.body2b_mobile,
@@ -84,7 +84,7 @@ const LogCard = () => {
                   as="p"
                   weight="semiBold"
                   lineHeight={1.06}
-                  css={responsiveNameCss}
+                  css={responsiveCardFontCss}
                 >
                   {d.inOut === "in" ? "입장" : "퇴장"}
                 </Typography>
@@ -92,12 +92,12 @@ const LogCard = () => {
                   as="p"
                   weight="semiBold"
                   color="gray_5"
-                  css={responsiveNameCss}
+                  css={responsiveCardFontCss}
                 >
                   {format(d.date, "LL.dd kk:mm")}
                 </Typography>
               </div>
-              <Typography as="p" weight="semiBold" css={responsiveNameCss}>
+              <Typography as="p" weight="semiBold" css={responsiveCardFontCss}>
                 {d.type}
               </Typography>
             </CardTemplate>
@@ -108,10 +108,10 @@ const LogCard = () => {
   );
 };
 
-const responsiveNameCss = css`
+const responsiveCardFontCss = css`
   ${DEVICE_LIST.map(
     (device) => `${applyMediaQuery(device)} {
-    font-size: ${responseNameFonts[device]}
+    font-size: ${responseCardFonts[device]}
   }`
   ).join("")}
 `;
