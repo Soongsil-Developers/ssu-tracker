@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Typography from "../typography";
-import styled, { css } from "styled-components";
+import { css } from "styled-components";
 import { format } from "date-fns";
 import theme from "../../constants/theme";
 import DEVICE_LIST from "../../constants/device";
@@ -23,7 +23,7 @@ const responseCardWidths = {
   wideDesktop: "806px",
 };
 
-const Card = () => {
+const LogCard = () => {
   const data = [
     {
       inOut: "in",
@@ -120,4 +120,4 @@ const responseCardCss = css`
   ).join("")}
 `;
 
-export default Card;
+export default LogCard;
