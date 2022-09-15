@@ -73,13 +73,13 @@ const Card = () => {
 
   return (
     <div style={{ border: "1px solid blue" }}>
-      <form>
+      <div>
         <select onChange={changeOption}>
           {buildings.map((building) => (
             <option value={building}> {building} </option>
           ))}
         </select>
-      </form>
+      </div>
 
       <div>
         {filteredData.map((d: { inOut: string; date: Date; type: string }) => (
