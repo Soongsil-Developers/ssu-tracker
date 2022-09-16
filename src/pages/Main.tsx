@@ -11,6 +11,7 @@ import type {
   ResponseMemberAmount,
   ResponseMemberMe,
 } from "../types/user";
+import type { LogCardProps } from "../types/log";
 import type { ResponseStreak } from "../types/streak";
 import AsyncBoundary from "../components/asyncBoundary";
 import BuildingCard from "../components/main/BuildingCard";
@@ -36,6 +37,18 @@ const Member = () => {
       <MemberNotify {...(amountData?.data as MemberAmount)} />
     </MemberBase>
   );
+};
+
+
+const BuildingAccess = () => {
+  const {
+    data: LogData,
+    loading: LogLoading,
+    error: LogError,
+  } = useFetch<LogCardProps>("https://server.com/members/allLog", {
+    method: "GET",
+  });
+  return <LogCard data={[]} {...LogData?.data} />;
 };
 
 const Buildings = () => {
@@ -67,7 +80,7 @@ const Main = () => {
       </AsyncBoundary>
       <Buildings />
       <Streak />
-      <LogCard />
+      <BuildingAccess />
     </MainBase>
   );
 };

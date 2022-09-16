@@ -44,6 +44,76 @@ const worker = setupWorker(
       })
     );
   }),
+rest.get("https://server.com/members/allLog", (req, res, ctx) => {
+    return res(
+      ctx.json({
+        data: {
+          data: [
+            {
+              inOut: "in",
+              date: new Date(2022, 8, 15, 17, 0),
+              type: "중앙도서관",
+            },
+            {
+              inOut: "out",
+              date: new Date(2022, 8, 15, 19, 0),
+              type: "중앙도서관",
+            },
+            {
+              inOut: "in",
+              date: new Date(2022, 8, 10, 13, 30),
+              type: "정보과학관",
+            },
+            {
+              inOut: "out",
+              date: new Date(2022, 8, 10, 14, 50),
+              type: "정보과학관",
+            },
+            {
+              inOut: "in",
+              date: new Date(2022, 3, 15, 7, 5),
+              type: "학생회관",
+            },
+            {
+              inOut: "out",
+              date: new Date(2022, 3, 15, 17, 5),
+              type: "학생회관",
+            },
+            {
+              inOut: "in",
+              date: new Date(2022, 3, 16, 7, 5),
+              type: "문화관",
+            },
+            {
+              inOut: "out",
+              date: new Date(2022, 3, 16, 17, 5),
+              type: "문화관",
+            },
+            {
+              inOut: "in",
+              date: new Date(2022, 2, 15, 7, 5),
+              type: "신양관",
+            },
+            {
+              inOut: "out",
+              date: new Date(2022, 2, 15, 17, 5),
+              type: "신양관",
+            },
+            {
+              inOut: "in",
+              date: new Date(2022, 1, 15, 7, 5),
+              type: "안익태기념관",
+            },
+            {
+              inOut: "out",
+              date: new Date(2022, 1, 15, 17, 5),
+              type: "안익태기념관",
+            },
+          ],
+        },
+      })
+    );
+  }),
   rest.get("https://server.com/streaks", (req, res, ctx) => {
     return res(
       ctx.json({

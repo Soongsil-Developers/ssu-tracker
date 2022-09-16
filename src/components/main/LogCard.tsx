@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Typography from "../typography";
 import { css } from "styled-components";
-import { format } from "date-fns";
+import { format, compareDesc } from "date-fns";
 import theme from "../../constants/theme";
 import DEVICE_LIST from "../../constants/device";
 import { applyMediaQuery } from "../../styles/mediaQuery";
 import CardTemplate from "../cardTemplate";
+import { Log, LogCardProps } from "../../types/log";
 
 const responseCardFonts = {
   mobile: theme.fontSize.body2b_mobile,
@@ -23,19 +24,8 @@ const responseCardWidths = {
   wideDesktop: "806px",
 };
 
-const LogCard = () => {
-  const data = [
-    {
-      inOut: "in",
-      date: new Date(2022, 8, 15, 16, 0),
-      type: "중앙도서관",
-    },
-    {
-      inOut: "in",
-      date: new Date(2022, 8, 15, 17, 30),
-      type: "정보과학관",
-    },
-  ];
+const LogCard = (prop: LogCardProps) => {
+  const [data, setData] = useState<Log[]>(prop.data);
   const buildings = [
     "모든 건물",
     "중앙도서관",
@@ -50,18 +40,27 @@ const LogCard = () => {
     "신양관",
   ];
 
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState<Log[]>(prop.data);
+
   const getFilterData = (option: string) => {
-    if (option === "모든 건물") setFilteredData(data);
-    else
-      setFilteredData(
-        data.filter((log: { type: string }) => log.type === option)
-      );
+    if (option === "모든 건물") setFilteredData(data.slice(0, 10));
+    else setFilteredData(data.filter((log: Log) => log.type === option));
   };
 
   const changeOption = (e: React.ChangeEvent<HTMLSelectElement>) => {
     getFilterData(e.target.value);
   };
+
+  const sortForDate = (array: Log[]) => {
+    return array.sort((a, b) =>
+      compareDesc(new Date(a.date), new Date(b.date))
+    );
+  };
+
+  useEffect(() => {
+    setData(sortForDate(prop.data));
+    setFilteredData(sortForDate(prop.data).slice(0, 10));
+  }, [prop]);
 
   return (
     <div>
@@ -76,33 +75,31 @@ const LogCard = () => {
       </div>
 
       <div>
-        {filteredData.map(
-          (d: { inOut: string; date: Date; type: string }, index) => (
-            <CardTemplate key={index} css={responseCardCss}>
-              <div>
-                <Typography
-                  as="p"
-                  weight="semiBold"
-                  lineHeight={1.06}
-                  css={responsiveCardFontCss}
-                >
-                  {d.inOut === "in" ? "입장" : "퇴장"}
-                </Typography>
-                <Typography
-                  as="p"
-                  weight="semiBold"
-                  color="gray_5"
-                  css={responsiveCardFontCss}
-                >
-                  {format(d.date, "LL.dd kk:mm")}
-                </Typography>
-              </div>
-              <Typography as="p" weight="semiBold" css={responsiveCardFontCss}>
-                {d.type}
+        {filteredData.map((d: Log, index: number) => (
+          <CardTemplate key={index} css={responseCardCss}>
+            <div>
+              <Typography
+                as="p"
+                weight="semiBold"
+                lineHeight={1.06}
+                css={responsiveCardFontCss}
+              >
+                {d.inOut === "in" ? "입장" : "퇴장"}
               </Typography>
-            </CardTemplate>
-          )
-        )}
+              <Typography
+                as="p"
+                weight="semiBold"
+                color="gray_5"
+                css={responsiveCardFontCss}
+              >
+                {format(new Date(d.date), "LL.dd kk:mm")}
+              </Typography>
+            </div>
+            <Typography as="p" weight="semiBold" css={responsiveCardFontCss}>
+              {d.type}
+            </Typography>
+          </CardTemplate>
+        ))}
       </div>
     </div>
   );
