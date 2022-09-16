@@ -12,7 +12,9 @@ import type {
   ResponseMemberMe,
 } from "../types/user";
 import type { LogCardProps } from "../types/log";
+import type { ResponseStreak } from "../types/streak";
 import AsyncBoundary from "../components/asyncBoundary";
+import BuildingCard from "../components/main/BuildingCard";
 
 const Member = () => {
   const {
@@ -37,6 +39,7 @@ const Member = () => {
   );
 };
 
+
 const BuildingAccess = () => {
   const {
     data: LogData,
@@ -47,6 +50,25 @@ const BuildingAccess = () => {
   });
   return <LogCard data={[]} {...LogData?.data} />;
 };
+
+const Buildings = () => {
+  const {
+    data: buildingData,
+    loading: buildingLoading,
+    error: buildingError,
+  } = useFetch<ResponseStreak>("https://server.com/streaks", {
+    method: "GET",
+  });
+  return (
+    <BuildingCard
+      data={[]}
+      mostVisit={""}
+      mostStay={""}
+      {...buildingData?.data}
+    />
+  );
+};
+
 const Main = () => {
   return (
     <MainBase>
@@ -56,6 +78,7 @@ const Main = () => {
       >
         <Member />
       </AsyncBoundary>
+      <Buildings />
       <Streak />
       <BuildingAccess />
     </MainBase>
