@@ -59,8 +59,7 @@ const LogCard = (prop: LogCardProps) => {
 
   useEffect(() => {
     setData(sortForDate(prop.data));
-    setFilteredData(prop.data);
-    getFilterData("모든 건물");
+    setFilteredData(sortForDate(prop.data).slice(0, 10));
   }, [prop]);
 
   return (
